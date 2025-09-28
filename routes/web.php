@@ -19,4 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('/articles', ArticleController::class);
 });
 
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])
+            ->name('articles.destroy');
+});
+
 require __DIR__.'/auth.php';

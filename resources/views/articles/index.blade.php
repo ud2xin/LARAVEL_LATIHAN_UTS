@@ -3,6 +3,17 @@
 @section('title','Daftar Artikel')
 
 @section('content')
+<div class="d-flex justify-content-between mb-3">
+    <h1>Articles</h1>
+
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn btn-outline-secondary">
+            Logout
+        </button>
+    </form>
+</div>
+
     <h2>Daftar Artikel</h2>
 
     @if(session('success'))
